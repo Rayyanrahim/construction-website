@@ -36,7 +36,7 @@ const thumb = service => service.image.replace('/images/', '/images/thumbs/')
         <a :href="'tel:' + company.phone"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.15.4 2.35.6 3.6.6a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z" /></svg>{{ company.phoneDisplay }}</a>
         <a :href="'mailto:' + company.email"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z" /></svg>{{ company.email }}</a>
       </div>
-      <span class="utility-tagline">Heating, cooling &amp; indoor air quality across the U.S.</span>
+      <span class="utility-tagline">Residential &amp; commercial HVAC service in Florida</span>
     </div>
   </div>
   <header class="site-header" @keydown.esc="closeMenus">
@@ -54,8 +54,8 @@ const thumb = service => service.image.replace('/images/', '/images/thumbs/')
               <div class="container mega-inner">
                 <div class="mega-intro">
                   <p class="eyebrow">Our services</p>
-                  <p class="mega-title">Heating, cooling and cleaner air, in one place.</p>
-                  <p class="mega-text">Not sure which one you need? Tell us what’s happening and we’ll point you to the right service.</p>
+                  <p class="mega-title">Heating, cooling and indoor air support for Florida properties.</p>
+                  <p class="mega-text">Compare services for your system, then contact us with your location and what you’ve noticed.</p>
                   <RouterLink to="/services" class="button button-small">View all services <span aria-hidden="true">↗</span></RouterLink>
                 </div>
                 <div class="mega-grid">

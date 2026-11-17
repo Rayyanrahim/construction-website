@@ -3,7 +3,7 @@ export const services = [
     slug: 'hvac-contractor', title: 'HVAC Contractor', label: 'One place for your HVAC needs', image: '/images/hvac-installation.jpg',
     imageAlt: 'Technician inspecting a residential outdoor air conditioning unit', imagePosition: 'center 45%',
     short: 'Heating, cooling, and ventilation support for homes and businesses.',
-    intro: 'From diagnosing a fault to planning a new system, we help you understand what your property needs. Start with a conversation about your space and the comfort you want to achieve.',
+    intro: 'Heating and cooling problems can disrupt your day. Start with a clear assessment of your equipment and property, then review practical options for repair, replacement, or ongoing care.',
     includes: ['Heating and cooling system assessment', 'Repair and replacement recommendations', 'Installation and maintenance planning', 'Residential and commercial HVAC support'],
     signs: ['You need help choosing a service', 'You are planning a new HVAC system', 'Several comfort problems need attention', 'You need a plan for ongoing maintenance'],
     faq: { q: 'Where should I start if I do not know what is wrong?', a: 'Describe the symptoms and your property type when requesting a visit. You do not need to diagnose the issue or know the equipment model before getting in touch.' },
@@ -11,7 +11,7 @@ export const services = [
   {
     slug: 'ac-repair', title: 'AC Repair', label: 'Get cool again', image: '/images/hvac-repair.jpg',
     imageAlt: 'Technician repairing the exposed components of an outdoor AC unit', imagePosition: 'center 48%',
-    short: 'Warm air, strange noises, or a system that won’t start? Let’s find the cause.',
+    short: 'Get a clear diagnosis when your air conditioner is blowing warm air, making unusual noises, or will not start.',
     intro: 'When your AC stops doing its job, a proper diagnosis is the first step. We look at the equipment, explain what needs attention, and discuss the repair before work begins.',
     includes: ['Cooling performance and airflow checks', 'Electrical and thermostat troubleshooting', 'Drainage and visible leak inspection', 'Repair options based on your system’s condition'],
     signs: ['Warm air from the vents', 'Unexpected noises or repeated cycling', 'Water around the indoor unit', 'A system that will not start'],
@@ -20,7 +20,7 @@ export const services = [
   {
     slug: 'ac-installation', title: 'AC Installation & Replacement', label: 'Find the right fit', image: '/images/ac-installation.jpg',
     imageAlt: 'Outdoor air conditioning condenser installed on wall brackets', imagePosition: 'center 60%',
-    short: 'Choose a system that suits your home, your comfort needs, and your budget.',
+    short: 'Compare replacement and new AC options sized for your home, comfort needs, and budget.',
     intro: 'Replacing your AC is a decision you should feel comfortable making. We review your space, discuss your priorities, and help you understand equipment and installation options.',
     includes: ['Review of your property and existing equipment', 'Equipment and sizing recommendations', 'Removal and replacement planning', 'System startup and controls walkthrough'],
     signs: ['Frequent breakdowns', 'A major repair on older equipment', 'A renovation or new living space', 'Uneven comfort throughout the home'],
@@ -29,7 +29,7 @@ export const services = [
   {
     slug: 'hvac-maintenance', title: 'HVAC Maintenance & Tune-Up', label: 'Keep things running', image: '/images/hvac-service.jpg',
     imageAlt: 'Technician checking air conditioning pressure with a manifold gauge set', imagePosition: 'center 48%',
-    short: 'Give your system some attention before the busiest heating and cooling months.',
+    short: 'Routine system checks can help catch wear, airflow, and drainage concerns before peak season.',
     intro: 'Maintenance is a chance to inspect, clean, and check the parts your system relies on. We explain what we find and flag anything that needs a closer look.',
     includes: ['Accessible component inspection', 'Filter and airflow review', 'Drainage and control checks', 'System operation checks and recommendations'],
     signs: ['The system is due for a check', 'Airflow seems weaker than usual', 'Cooling or heating takes longer', 'You want to plan for the coming season'],
