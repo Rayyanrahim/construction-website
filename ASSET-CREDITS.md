@@ -1,5 +1,20 @@
 # Website photography
 
+## Current website identity
+
+Company name: **FL CONSTRUCTION VENTURE**. The shield, F, and upward-arrow symbol in `public/brand-symbol.svg` was redrawn as a clean vector from the user's supplied reference, using the website's navy `#193d59` and orange `#e9773e`. The same symbol is used in the favicon, header, footer, and standalone error pages. Earlier logo exploration PDFs and exports are historical concepts.
+
+## Hero background video
+
+Update: the active hero now uses the original Arno Senoner rooftop photograph below with CSS zoom/pan animation, following the user's preference. This is animated photography, not video footage or animated fan blades. The Pexels clip below is retained as an unused alternative.
+
+- `public/videos/hvac-hero.mp4` — "Spinning Air Ventilation", Eduardo Cano Photo Co., Pexels: https://www.pexels.com/video/spinning-air-ventilation-5327934/
+- Download: https://videos.pexels.com/video-files/5327934/5327934-hd_1920_1080_30fps.mp4
+- Pexels license (checked 2026-11-18): https://www.pexels.com/license/ — free website use and modification permitted. The clip is illustrative stock footage, not company equipment or work.
+- Local 1080p MP4, approximately 4 MB, played muted and looped. The existing hero photograph is used when reduced motion/data saving is enabled, or the video cannot load. A pause/play control is available.
+
+## Photos
+
 The photos are illustrative stock photography, not company staff or completed jobs.
 
 - hvac-repair.jpg — José Andrés Pacheco Cortes, Pexels: https://www.pexels.com/photo/repairman-repairing-a-air-conditioner-5463587/

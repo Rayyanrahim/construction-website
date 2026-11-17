@@ -36,7 +36,7 @@ router.afterEach(to => {
   const service = to.name === 'service' ? serviceBySlug(to.params.slug) : null
   document.title = (service?.title || to.meta.title) + ' | ' + company.name
   const description = document.querySelector('meta[name="description"]')
-  if (description) description.content = service?.intro || 'Florida Construction Venture offers residential and commercial HVAC services across the United States. Explore AC repair, installation, maintenance, air ducts, and indoor air quality.'
+  if (description) description.content = service?.intro || 'FL CONSTRUCTION VENTURE offers residential and commercial HVAC services across the United States. Explore AC repair, installation, maintenance, air ducts, and indoor air quality.'
 })
 createApp(App).use(router).mount('#app')
 

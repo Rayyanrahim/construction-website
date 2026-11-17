@@ -23,10 +23,10 @@ a { color: inherit; text-decoration: none; }
 header, footer { padding: 26px 24px; }
 header { background: #fff; border-bottom: 1px solid #dce3e7; }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-align: left; }
-.brand svg { width: 40px; height: 40px; }
+.brand img { width: 48px; height: 48px; }
 .brand span { display: grid; gap: 3px; }
-.brand strong { font-size: 23px; line-height: 1; letter-spacing: .075em; }
-.brand small { font-size: 8.5px; font-weight: 700; letter-spacing: .13em; }
+.brand strong { font-size: 18px; line-height: 1.1; letter-spacing: .025em; }
+.brand small { font-size: 11px; font-weight: 700; letter-spacing: .3em; }
 main { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 30px 24px 50px; }
 main > * { animation: rise .9s ease both; }
 .code { margin: 0 0 18px; color: #193d59; font-size: clamp(120px, 21vw, 250px); font-weight: 700; line-height: .86; letter-spacing: -.03em; }
@@ -50,8 +50,8 @@ footer a { color: #193d59; font-weight: 600; text-decoration: underline; text-un
 <body>
 <header>
   <a class="brand" href="/" aria-label="${company.name} home">
-    <svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M7 11h29M7 21h22M7 31h15" stroke="currentColor" stroke-width="5"/><path d="m30 28 7 7-7 7" stroke="#ed773b" stroke-width="4"/></svg>
-    <span><strong>FLORIDA</strong><small>CONSTRUCTION VENTURE</small></span>
+    <img src="/brand-symbol.svg" alt="" width="48" height="48">
+    <span><strong>FL CONSTRUCTION</strong><small>VENTURE</small></span>
   </a>
 </header>
 <main>

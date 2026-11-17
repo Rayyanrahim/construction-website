@@ -1,5 +1,5 @@
 export const company = {
-  name: 'FL Venture Corporation',
+  name: 'FL CONSTRUCTION VENTURE',
   address: '123 Sample Commerce Drive, Orlando, FL 32801',
   phone: '+12025550148',
   phoneDisplay: '(202) 555-0148',

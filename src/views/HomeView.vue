@@ -87,12 +87,14 @@ onUnmounted(() => {
 
     <!-- ═══ HERO ═══ -->
     <section class="home-hero">
-      <div ref="heroBg" class="home-hero-bg" aria-hidden="true"></div>
+      <div ref="heroBg" class="home-hero-bg" aria-hidden="true">
+        <div class="home-hero-photo"></div>
+      </div>
       <div class="container">
         <div class="home-hero-text">
           <p class="kicker kicker-light reveal rise">Residential & commercial HVAC in Florida</p>
           <SplitHeading tag="h1" text="Reliable comfort starts with the right HVAC team." />
-          <p class="home-hero-lead reveal rise" style="--delay: .1s">From air conditioning repairs to complete system replacements, FL Venture Corporation helps Florida homes and businesses stay comfortable year-round.</p>
+          <p class="home-hero-lead reveal rise" style="--delay: .1s">From air conditioning repairs to complete system replacements, FL CONSTRUCTION VENTURE helps Florida homes and businesses stay comfortable year-round.</p>
           <div class="reveal rise" style="--delay: .2s">
             <FloodButton to="/contact">Request service</FloodButton>
           </div>
@@ -171,7 +173,7 @@ onUnmounted(() => {
       <div class="container coverage-grid">
         <div class="reveal fade-up">
           <p class="eyebrow">Close to your comfort</p>
-          <h2>Florida in our name.<br />The U.S. in our reach.</h2>
+          <h2>HVAC support<br />for your Florida property.</h2>
         </div>
         <div class="reveal fade-up delay-1">
           <p>We serve homes and businesses across Florida with air conditioning, heating, and ventilation support.</p>
