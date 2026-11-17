@@ -1,13 +1,35 @@
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { services } from '../data/services'
 import { homeFAQs } from '../data/site'
-import ServiceCard from '../components/ServiceCard.vue'
 import FAQList from '../components/FAQList.vue'
 import ContactBand from '../components/ContactBand.vue'
+import FloodButton from '../components/FloodButton.vue'
+import SplitHeading from '../components/SplitHeading.vue'
+
+const featured = services.slice(1, 4)
 
 /* ── Scroll-reveal (IntersectionObserver) ── */
 let observer = null
+
+/* ── Hero background drifts at half the scroll speed ── */
+const heroBg = ref(null)
+const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+let queued = false
+function drift() {
+  queued = false
+  const bg = heroBg.value
+  if (!bg) return
+  const hero = bg.parentElement.getBoundingClientRect()
+  if (hero.bottom < 0 || hero.top > window.innerHeight) return
+  bg.style.transform = `translate3d(0, ${(hero.top * -0.5).toFixed(1)}px, 0)`
+}
+function onScroll() {
+  if (queued) return
+  queued = true
+  requestAnimationFrame(drift)
+}
+
 onMounted(() => {
   observer = new IntersectionObserver(
     (entries) => {
@@ -21,8 +43,18 @@ onMounted(() => {
     { threshold: 0.12 }
   )
   document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+
+  if (!still) {
+    drift()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+  }
 })
-onUnmounted(() => observer?.disconnect())
+onUnmounted(() => {
+  observer?.disconnect()
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('resize', onScroll)
+})
 </script>
 
 <template>
@@ -30,21 +62,16 @@ onUnmounted(() => observer?.disconnect())
 
     <!-- ═══ HERO ═══ -->
     <section class="home-hero">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal fade-up">
-          <p class="eyebrow">Your everyday comfort, taken care of</p>
-          <h1>Your home.<br />Comfortable<br /><span>again.</span></h1>
-          <p class="hero-description">AC repair, new systems, and routine care. Florida Construction Venture helps keep your home feeling just right.</p>
-          <div class="hero-actions">
-            <RouterLink class="button" to="/contact">Request service <span aria-hidden="true">↗</span></RouterLink>
-            <RouterLink class="text-link" to="/services">Find your service <span aria-hidden="true">→</span></RouterLink>
+      <div ref="heroBg" class="home-hero-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="home-hero-text">
+          <p class="kicker kicker-light reveal rise">Your everyday comfort, taken care of</p>
+          <SplitHeading tag="h1" text="Your home. Comfortable again." />
+          <p class="home-hero-lead reveal rise" style="--delay: .1s">AC repair, new systems, and routine care. Florida Construction Venture helps keep your home feeling just right.</p>
+          <div class="reveal rise" style="--delay: .2s">
+            <FloodButton to="/contact" fill="light">Request service</FloodButton>
           </div>
-          <p class="hero-note">For your home. For your business. Across the U.S.</p>
         </div>
-        <figure class="hero-photo reveal fade-up delay-1">
-          <img src="/images/hvac-installation.jpg" alt="A professional inspecting an outdoor residential air conditioning unit" width="1400" height="933" fetchpriority="high" />
-          <figcaption><span>A little care. A lot more comfort.</span><span aria-hidden="true">↗</span></figcaption>
-        </figure>
       </div>
     </section>
 
@@ -58,21 +85,34 @@ onUnmounted(() => observer?.disconnect())
     </section>
 
     <!-- ═══ FEATURED SERVICES ═══ -->
-    <section class="section-pad">
+    <section class="home-services">
       <div class="container">
-        <div class="section-heading reveal fade-up">
+        <div class="home-services-head">
           <div>
-            <p class="eyebrow">What we can help with</p>
-            <h2>Whatever the weather,<br />we've got your comfort covered.</h2>
+            <p class="kicker reveal rise">What we can help with</p>
+            <SplitHeading tag="h2" text="Whatever the weather, we’ve got your comfort covered." />
           </div>
-          <RouterLink class="text-link" to="/services">All HVAC services <span aria-hidden="true">↗</span></RouterLink>
+          <div class="reveal rise">
+            <FloodButton to="/services">See all services</FloodButton>
+          </div>
         </div>
-        <div class="service-grid featured-services reveal fade-up delay-1">
-          <ServiceCard v-for="service in services.slice(1, 4)" :key="service.slug" :service="service" image />
+        <div class="home-services-grid">
+          <RouterLink v-for="(service, i) in featured" :key="service.slug" :to="'/services/' + service.slug" class="photo-card reveal rise" :style="{ '--delay': i * 0.1 + 's' }">
+            <img :src="service.image" :alt="service.imageAlt" :style="{ objectPosition: service.imagePosition }" loading="lazy" />
+            <span class="photo-card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 16 16 4M6.5 4H16v9.5" /></svg>
+            </span>
+            <div class="photo-card-text">
+              <h3>{{ service.title }}</h3>
+              <p>{{ service.short }}</p>
+            </div>
+          </RouterLink>
         </div>
-        <div class="extra-services reveal fade-up delay-2">
-          <RouterLink v-for="service in services.filter((s, i) => i === 0 || i > 3)" :key="service.slug" :to="'/services/' + service.slug">{{ service.title }}<span aria-hidden="true">↗</span></RouterLink>
-        </div>
+        <p class="home-services-foot reveal rise" style="--delay: .4s">
+          <span class="tag-label">More</span>
+          <span>Need something else? We cover {{ services.length }} HVAC services.</span>
+          <RouterLink to="/services">View all services</RouterLink>
+        </p>
       </div>
     </section>
 
@@ -150,7 +190,16 @@ onUnmounted(() => observer?.disconnect())
 .delay-1 { transition-delay: 0.15s; }
 .delay-2 { transition-delay: 0.28s; }
 
+/* Hero and services: rise by the element's own height while fading in. */
+.reveal.rise { transition: none; }
+.reveal.rise.visible { animation: rise 1.25s ease var(--delay, 0s) both; }
+@keyframes rise {
+  from { opacity: 0; transform: translate3d(0, 100%, 0); }
+  to { opacity: 1; transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal.rise.visible { animation: none; }
 }
 </style>

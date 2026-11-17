@@ -17,6 +17,8 @@ The photos are illustrative stock photography, not company staff or completed jo
 
 Photos are downloaded locally from the photographers' stock listings. They have been visually checked for the intended subject; stock-page titles are not always technically accurate. Each of the nine service detail pages uses its own photograph. Background crops are controlled by `imagePosition` in `src/data/services.js`; overview-page crops are set on the page hero.
 
+`public/images/thumbs/` holds 240px-wide copies of the nine service photos for the Services menu in the header. Regenerate a thumbnail when its service photo changes.
+
 Licenses: https://www.pexels.com/license/ and https://unsplash.com/license
 
 Reference website for information structure: https://floridaairandheat.com/
