@@ -42,14 +42,14 @@ onUnmounted(() => robots?.remove())
 
 <!-- The standalone server error pages repeat this look in error-pages.js; keep the two in step. -->
 <style scoped>
-.error-page { padding: 96px 0 110px; background: #f8fafb; color: var(--navy); text-align: center; }
+.error-page { padding: 96px 0 110px; background: var(--soft); color: var(--navy); text-align: center; }
 .error-code { margin: 0 0 18px; color: var(--navy); font-size: clamp(120px, 21vw, 250px); font-weight: 700; line-height: .86; letter-spacing: -.03em; }
 .error-code span:nth-child(2) { color: var(--orange); }
 .error-page .kicker { width: fit-content; margin-inline: auto; }
 .error-page h1 { text-wrap: balance; margin: 0 0 16px; font-size: clamp(34px, 4.2vw, 56px); font-weight: 700; line-height: 1.15; letter-spacing: -.03em; }
 .error-text { max-width: 520px; margin: 0 auto 30px; color: var(--muted); font-size: 17px; line-height: 1.6; }
 .error-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
-.error-actions :deep(.flood-button) { color: #fff; }
+
 .error-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 30px; max-width: 620px; margin: 48px auto 0; padding-top: 26px; border-top: 1px solid var(--line); font-size: 14px; }
 .error-links span { color: var(--muted); }
 .error-links a { color: var(--navy); font-weight: 500; text-decoration: underline; text-underline-offset: 4px; transition: color .2s; }

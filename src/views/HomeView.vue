@@ -8,6 +8,12 @@ import FloodButton from '../components/FloodButton.vue'
 import SplitHeading from '../components/SplitHeading.vue'
 
 const featured = [...services.slice(1), services[0]]
+const workSteps = [
+  { title: 'Tell us what you need', text: 'Share your comfort concerns, property type, and ZIP code. We’ll confirm coverage and the next available service options.' },
+  { title: 'Understand your system', text: 'We assess your equipment and explain what needs attention, so you know what’s behind the problem.' },
+  { title: 'Choose with confidence', text: 'Compare the repair or replacement options, then agree on the scope before any work begins.' },
+  { title: 'Get back to comfortable', text: 'We complete the agreed work, check system operation, and walk you through the care your equipment needs.' },
+]
 const serviceTrack = ref(null)
 const atStart = ref(true)
 const atEnd = ref(false)
@@ -149,49 +155,74 @@ onUnmounted(() => {
     </section>
 
     <!-- ═══ ABOUT ═══ -->
-    <section class="about-section section-pad">
-      <div class="container about-grid">
-        <div class="about-photo reveal fade-right">
-          <img src="/images/about-team.jpg" alt="Construction professionals discussing a project blueprint" loading="lazy" width="1400" height="933" />
+    <section class="work-section section-pad" aria-labelledby="work-heading">
+      <div class="container">
+        <div class="work-heading-row reveal fade-up">
+          <div>
+            <p class="kicker">The way we work</p>
+            <h2 id="work-heading">What to expect<br />from your service visit.</h2>
+          </div>
+          <p>We assess your system, explain the options, and agree on the work with you before getting started.</p>
         </div>
-        <div class="about-copy reveal fade-up delay-1">
-          <p class="eyebrow">The way we work</p>
-          <h2>Thoughtful HVAC service.<br />Clear options.<br />Comfort that lasts.</h2>
-          <p>Whether you manage a home or a commercial property, you deserve to understand the work being recommended. We assess your HVAC needs, explain the available options, and confirm the scope with you before work begins.</p>
-          <ul class="check-list">
-            <li>A clear explanation of what needs attention</li>
-            <li>Repair and replacement options you can compare</li>
-            <li>The scope agreed before work begins</li>
-          </ul>
-          <RouterLink class="text-link" to="/about">Get to know us <span aria-hidden="true">↗</span></RouterLink>
+        <div class="work-layout">
+          <div class="work-visual reveal fade-right">
+            <img class="work-photo" src="/images/hvac-installation.jpg" alt="HVAC technician inspecting an outdoor air conditioning unit" loading="lazy" width="900" height="1100" />
+          </div>
+          <div class="work-details reveal fade-up delay-1">
+            <ol class="work-steps">
+              <li v-for="(step, i) in workSteps" :key="step.title">
+                <span class="work-step-number" aria-hidden="true">0{{ i + 1 }}</span>
+                <div><h3>{{ step.title }}</h3><p>{{ step.text }}</p></div>
+              </li>
+            </ol>
+            <RouterLink class="text-link" to="/about">Get to know our approach <span aria-hidden="true">↗</span></RouterLink>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ═══ COVERAGE ═══ -->
-    <section class="coverage-section section-pad">
-      <div class="container coverage-grid">
-        <div class="reveal fade-up">
-          <p class="eyebrow">Close to your comfort</p>
-          <h2>HVAC support<br />for your Florida property.</h2>
+    <section class="comfort-section section-pad" aria-labelledby="comfort-heading">
+      <div class="container">
+        <div class="comfort-layout">
+          <div class="comfort-copy reveal fade-up">
+            <p class="kicker kicker-light">Close to your comfort</p>
+            <h2 id="comfort-heading">HVAC service for<br />Florida properties.</h2>
+            <p>Air conditioning, heating, and ventilation support for homes and commercial properties across Florida.</p>
+            <div class="comfort-cards">
+              <RouterLink to="/services" class="comfort-card">
+                <h3>Residential HVAC</h3>
+                <p>Cooling, heating, and cleaner indoor air for everyday living.</p>
+                <span class="comfort-card-link">Residential services <b aria-hidden="true">↗</b></span>
+              </RouterLink>
+              <RouterLink to="/services/commercial-hvac" class="comfort-card">
+                <h3>Commercial HVAC</h3>
+                <p>HVAC support for the spaces your team and customers depend on.</p>
+                <span class="comfort-card-link">Commercial services <b aria-hidden="true">↗</b></span>
+              </RouterLink>
+            </div>
+          </div>
+          <div class="comfort-visual reveal fade-up delay-1">
+            <img src="/images/service-areas.jpg" alt="Aerial view of a Florida residential community" loading="lazy" width="900" height="1000" />
+          </div>
         </div>
-        <div class="reveal fade-up delay-1">
-          <p>We serve homes and businesses across Florida with air conditioning, heating, and ventilation support.</p>
-          <p class="muted">Enter your ZIP code to ask about service coverage and appointment availability.</p>
-          <RouterLink class="text-link" to="/service-areas">Check your service area <span aria-hidden="true">↗</span></RouterLink>
+        <div class="comfort-footer reveal fade-up">
+          <div><strong>Check availability in your area.</strong><p>Share your ZIP code to confirm coverage and appointment availability.</p></div>
+          <FloodButton to="/service-areas">Check your service area <span aria-hidden="true">↗</span></FloodButton>
         </div>
       </div>
     </section>
 
     <!-- ═══ FAQ ═══ -->
-    <section class="section-pad faq-section">
-      <div class="container faq-grid">
-        <div class="reveal fade-up">
-          <p class="eyebrow">Before you book</p>
-          <h2>A few questions<br />we can answer.</h2>
-          <p class="muted">Have something else in mind?<br /><RouterLink to="/contact" class="inline-link">Send us a message.</RouterLink></p>
+    <section class="section-pad home-faq" aria-labelledby="faq-heading">
+      <div class="container home-faq-layout">
+        <div class="faq-intro reveal fade-up">
+          <p class="kicker">Frequently asked questions</p>
+          <h2 id="faq-heading">Before you<br />book a service.</h2>
+          <p class="muted">Find answers about your system, service options, and coverage.</p>
+          <RouterLink class="text-link" to="/contact">Ask us a question <span aria-hidden="true">↗</span></RouterLink>
         </div>
-        <div class="reveal fade-up delay-1">
+        <div class="home-faq-questions reveal fade-up delay-1">
           <FAQList :items="homeFAQs" />
         </div>
       </div>
@@ -206,6 +237,63 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+.work-heading-row { display: flex; align-items: end; justify-content: space-between; gap: 60px; margin-bottom: 48px; }
+.work-heading-row h2 { margin-bottom: 0; }
+.work-heading-row > p { max-width: 370px; margin: 0 0 4px; color: var(--muted); font-size: 16px; }
+.work-layout { display: grid; grid-template-columns: 1fr 1.08fr; gap: 80px; align-items: start; }
+.work-visual { min-width: 0; }
+.work-photo { width: 100%; height: 570px; object-fit: cover; object-position: 48% center; border-radius: var(--radius); }
+.work-steps { list-style: none; padding: 0; margin: 0 0 20px; border-top: 1px solid var(--line); }
+.work-steps li { display: grid; grid-template-columns: 36px 1fr; gap: 20px; padding-block: 25px; border-bottom: 1px solid var(--line); }
+.work-step-number { padding-top: 3px; color: var(--accent-text); font-size: 14px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.work-steps h3 { font-size: 21px; margin: 0 0 9px; letter-spacing: -.02em; }
+.work-steps p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
+.work-details > .text-link { margin-left: 56px; }
+.comfort-section { background: var(--navy); color: white; }
+.comfort-layout { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; }
+.comfort-copy > p:not(.kicker) { max-width: 455px; margin-bottom: 32px; color: #d5e0e8; font-size: 16px; }
+.comfort-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.comfort-card { display: flex; flex-direction: column; align-items: start; padding-block: 24px 0; border-top: 1px solid #ffffff40; }
+.comfort-card h3 { margin: 0 0 12px; font-size: 20px; letter-spacing: -.02em; }
+.comfort-card p { color: #d5e0e8; font-size: 14px; line-height: 1.7; margin-bottom: 24px; }
+.comfort-card-link { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; font-size: 13px; font-weight: 600; }
+.comfort-card-link b { color: var(--orange); font-size: 20px; font-weight: 400; }
+.comfort-card:hover .comfort-card-link { text-decoration: underline; text-underline-offset: 5px; }
+.comfort-visual { align-self: stretch; min-height: 470px; }
+.comfort-visual > img { height: 100%; width: 100%; max-height: 560px; object-fit: cover; border-radius: var(--radius); }
+.comfort-footer { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding-top: 32px; margin-top: 48px; border-top: 1px solid #ffffff40; }
+.comfort-footer strong { font-size: 20px; font-weight: 600; }
+.comfort-footer p { margin: 8px 0 0; color: #d5e0e8; font-size: 14px; }
+.comfort-footer .button { flex-shrink: 0; }
+.home-faq { background: var(--soft); }
+.home-faq-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; align-items: start; }
+.faq-intro > .muted { max-width: 340px; font-size: 16px; margin-bottom: 20px; }
+.faq-booking-note { margin: 24px 0 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+@media (max-width: 1050px) {
+  .work-layout, .comfort-layout, .home-faq-layout { gap: 40px; }
+  .work-heading-row { gap: 35px; }
+  .work-heading-row > p { max-width: 330px; }
+  .work-photo { height: 610px; }
+  .comfort-cards { gap: 20px; }
+}
+@media (max-width: 760px) {
+  .work-heading-row { display: block; margin-bottom: 32px; }
+  .work-heading-row > p { max-width: 520px; margin: 22px 0 0; }
+  .work-layout, .comfort-layout, .home-faq-layout { grid-template-columns: 1fr; gap: 32px; }
+  .work-photo { height: 420px; object-position: center 45%; }
+  .work-steps li { padding-block: 22px; }
+  .comfort-visual { min-height: 0; }
+  .comfort-visual > img { height: 340px; }
+  .comfort-footer { align-items: start; flex-direction: column; gap: 24px; margin-top: 32px; padding-top: 28px; }
+}
+@media (max-width: 440px) {
+  .work-photo { height: 360px; }
+  .work-steps li { grid-template-columns: 28px 1fr; gap: 14px; }
+  .work-steps h3 { font-size: 19px; }
+  .work-details > .text-link { margin-left: 42px; }
+  .comfort-cards { grid-template-columns: 1fr; gap: 24px; }
+  .comfort-visual > img { height: 280px; }
+}
 /* ─── Scroll-reveal animations ─── */
 .reveal {
   opacity: 0;
